@@ -255,7 +255,13 @@ const App = () =>{
   function boardBlocker(boardNo){
     var boardOne = document.getElementsByClassName("board")[0];
     var boardTwo = document.getElementsByClassName("board")[1];
-
+    
+    for(const box of boardOne.childNodes){
+      box.setAttribute('content-before','')
+    }
+    for(const box of boardTwo.childNodes){
+      box.setAttribute('content-before','')
+    }
     if(boardNo === 'one'){
       boardOne.classList.add("board_blocked");
       boardTwo.classList.remove("board_blocked");
@@ -282,7 +288,6 @@ const App = () =>{
         <div className="GameOver">
           <ScoreBoard names={{playerOneName: "POne", playerTwoName: "PTwo"}} scores={cotl.updateScore(playerOne, playerTwo)} playerXPlaying={playerXPlaying} ID={sessionID}/>
           <Board name={"X"} board={playerOne} onClick={null} mouseHoverTile={mouseHoverTile}/>
-          <h1 style={{fontSize: "30px", color: "black", background: "", textAlign: "center"}}>{cotl.winner(playerOne, playerTwo)}</h1>
           <Board name={"O"} board={playerTwo} onClick={null} mouseHoverTile={mouseHoverTile}/>
           <ControlUnit resetGame={resetBoard} joinGame={AlertSession}/>
         </div>)
