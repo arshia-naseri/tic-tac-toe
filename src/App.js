@@ -10,6 +10,7 @@ import { getAnalytics } from "firebase/analytics";
 import ControlUnit from "./ControlUnit";
 import * as cotl from "./Class.js";
 import './App.css';
+import './GameOver.css'
 
 
 const App = () =>{
@@ -282,23 +283,25 @@ const App = () =>{
   }
 
     return(
-
       <>
-        {cotl.handleGameOver(playerOne, playerTwo) ? (
-        <div className="GameOver">
-          <ScoreBoard names={{playerOneName: "POne", playerTwoName: "PTwo"}} scores={cotl.updateScore(playerOne, playerTwo)} playerXPlaying={playerXPlaying} ID={sessionID}/>
-          <Board name={"X"} board={playerOne} onClick={null} mouseHoverTile={mouseHoverTile}/>
-          <Board name={"O"} board={playerTwo} onClick={null} mouseHoverTile={mouseHoverTile}/>
-          <ControlUnit resetGame={resetBoard} joinGame={AlertSession}/>
-        </div>)
-          :
-        (<div className="Game">
-
-          <ScoreBoard names={{playerOneName: "POne", playerTwoName: "PTwo"}} scores={cotl.updateScore(playerOne, playerTwo)} playerXPlaying={playerXPlaying} ID={sessionID}/>
-          <Board name={"X"} board={playerOne} onClick={handleBoxClickPlayerOne} mouseHoverTile={mouseHoverTile}/>
-          <Dice rotateDice={rotateDice}/>
-          <Board name={"O"} board={playerTwo} onClick={handleBoxClickPlayerTwo} mouseHoverTile={mouseHoverTile}/>
-        </div>)}
+        {cotl.handleGameOver(playerOne, playerTwo) ?(
+          <section className="gameover-section">
+            <section className="gameover-container">
+              <h1 className="game-decision">Player x Won</h1>
+              <section className="button-section">
+                <button onClick={resetBoard}>Reset Game</button>
+                <button onClick={AlertSession}>Join Game</button>
+              </section>
+            </section>
+          </section>
+        
+        ):(<></>)}
+        <div className="Game">
+        <ScoreBoard names={{playerOneName: "POne", playerTwoName: "PTwo"}} scores={cotl.updateScore(playerOne, playerTwo)} playerXPlaying={playerXPlaying} ID={sessionID}/>
+        <Board name={"X"} board={playerOne} onClick={handleBoxClickPlayerOne} mouseHoverTile={mouseHoverTile}/>
+        <Dice rotateDice={rotateDice}/>
+        <Board name={"O"} board={playerTwo} onClick={handleBoxClickPlayerTwo} mouseHoverTile={mouseHoverTile}/>
+        </div>
         <ControlUnit resetGame={resetBoard} joinGame={AlertSession}/>
       </>
 
