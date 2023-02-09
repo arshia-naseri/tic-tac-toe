@@ -1,0 +1,45 @@
+{
+  "name": "minigame",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "firebase": "^9.17.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-firebase-hooks": "^5.1.1",
+    "react-scripts": "5.0.1",
+    "socket.io-client": "^4.5.4",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "description": "This repository contains the source code for a Tic Tac Toe game implemented using ReactJS. The game allows two players to play Tic Tac Toe on a 9-square board, with each player taking turns to place their mark (random number determind by a dice). The game finishes when a player has no space left on their board, and the winner is the player with the higher point. The game also includes a dice feature, where it automatically rolls a number for the player after a move has been made.",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
+}
